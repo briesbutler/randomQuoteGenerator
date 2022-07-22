@@ -1,14 +1,13 @@
-let quote = document.getElementById("quote");
-let author = document.getElementById("author");
-let btn = document.getElementById("btn");
-const url = "https://api.quotable.io/random";
-let getQuote = () => {
-  fetch(url)
-    .then((data) => data.json())
-    .then((item) => {
-      quote.innerText = item.content;
-      author.innerText = item.author;
-    });
-};
-window.addEventListener("load", getQuote);
-btn.addEventListener("click", getQuote);
+const quoteArray = () => {
+  fetch("https://type.fit/api/quotes")
+    .then(function(response) {
+      return response.json();
+   })
+   .then(function(data) {
+     console.log(data);
+   });
+}
+
+const randomQuote = () =>{
+  let randomNumber = Math.floor(Math.random() * quoteArray.length);
+}
